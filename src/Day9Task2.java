@@ -8,7 +8,7 @@ public class Day9Task2 {
     public static void main(String[] args) throws Exception {
         long[] cypher = Arrays.stream(
             Files.readString(Path.of("Day9-input.txt")).split("\\n"))
-            .mapToLong(Long:: valueOf).toArray();                        
+            .mapToLong(Long::valueOf).toArray();                        
 
         for (int i = 0; i<cypher.length; i++) {
             long sum = cypher[i];
