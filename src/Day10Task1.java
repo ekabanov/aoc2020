@@ -8,15 +8,18 @@ public class Day10Task1 {
 
     public static void main(String[] args) throws Exception {
         long[] adapters = Arrays.stream(
-            Files.readString(Path.of("Day9-input.txt")).split("\\n"))
+            Files.readString(Path.of("Day10-input.txt")).split("\\n"))
             .mapToLong(Long::valueOf).toArray();                        
         
         Arrays.sort(adapters);
+        System.out.println(Arrays.toString(adapters));
 
         int one_diff = 0;
         int three_diff = 1;
-        for (int i = 0; i<adapters.length; i++) {
-            if (adapters[i]-adapters[i+1] == 1) one_diff++; else three_diff++;
+        if (adapters[0] == 1) one_diff++; else three_diff++;
+        for (int i = 1; i<adapters.length; i++) {
+            System.out.println(adapters[i]-adapters[i-1] );
+            if (adapters[i]-adapters[i-1] == 1) one_diff++; else three_diff++;
         }
         System.out.println(one_diff*three_diff);
     }
